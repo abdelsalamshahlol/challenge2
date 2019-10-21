@@ -45,15 +45,43 @@ Create two computers object from your factory function and save them in one arra
 Note: please write one or two lines here describing your solution.
 */
 
-function makeComputer(type, color, weight) {
-  // TODO: Your code here
+function makeComputer(type, color, weight, price) {
+  return {
+    type: type,
+    color: color,
+    weight: weight,
+    price: price
+  }
 }
+
+var computers = [];
+var laptop = makeComputer('Laptop', 'Black', '5kg', 3700);
+var desktop = makeComputer('Desktop', 'Black', '10kg', 2800);
+computers.push(laptop, desktop);
+
+/**
+  ==== Solution description ====
+  Computers have different attributes like type, color, weight, and price.
+  @var computers is used as a container to hold the two objects (laptop and desktop).
+  Using the factory function @function makeComputer(), two objects were created
+  and pushed to the @param computers array.  
+*/
 
 // Write a function displayComputer that can be used to display one computer.
 
 function displayComputer(computer) {
-  // TODO: Your code here
+  return 'Type: ' + computer['type'] + '\n' +
+         'Color: ' + computer['color'] + '\n' +
+         'Weight: ' + computer['weight'] + '\n' +
+         'Price: $'+ computer['price'];
 }
+
+/**
+  ==== Solution description ====
+  @function displayComputer(), accepts a single parameter (Object) and returns
+  a String that presents the Object properties, which in this case the computer.   
+*/
+
 
 //=============================================================================
 /*                                  Q2                                       */
