@@ -64,7 +64,7 @@ computers.push(laptop, desktop);
   Computers have different attributes like type, color, weight, and price.
   @var computers is used as a container to hold the two objects (laptop and desktop).
   Using the factory function @function makeComputer(), two objects were created
-  and pushed to the @param computers array.  
+  and pushed to the @var computers array.  
 */
 
 // Write a function displayComputer that can be used to display one computer.
@@ -101,8 +101,23 @@ uppercaseAll(strArr); ==> [ 'HELLO', 'WORLD', 'WHIRLED', 'PEAS' ]
 */
 
 function uppercaseAll(arrayOfStrings) {
-  // TODO: your code here
+    if (Array.isArray(arrayOfStrings)) {
+        return map(arrayOfStrings, function(str, index) {
+            return str.toUpperCase();
+        });
+    }
+    return 'Invalid input';
 }
+
+/**
+  ==== Solution description ====
+  @function uppercaseAll() accepts a single @param arrayOfStrings and
+  checks if its an array or not. In case its not an array it will return
+  an invalid input message, else it will utilize the @function map(coll, function)
+  to create a new array, iterate through the strings of @param coll and use @param
+  function to modify the values and push them to the new array.    
+*/
+
 
 //=============================================================================
 /*                                  Q3                                       */
@@ -140,8 +155,24 @@ var data = [
 ];
 
 function highestPopulation(arrayOfObjects) {
-  // TODO: your code here
+    if (Array.isArray(arrayOfObjects)) {
+        return filter(arrayOfObjects, function(value, key) {
+            if (value.population > 500000000) {
+                return value;
+            }
+        });
+    }
+    return 'Invalid input';
 }
+
+/**
+  ==== Solution description ====
+  @function highestPopulation() accepts a single @param arrayOfObjects and
+  checks if its an array or not. In case its not an array it will return
+  an invalid input message, else it will utilize the @function filter(coll, predicate)
+  to create a new array, iterate through the objects inside @param coll and use @param
+  predicate to filter the values and push the ones that are valied to the new array.    
+*/
 
 //=============================================================================
 /*                              Q4                                           */
@@ -160,8 +191,23 @@ Note: please write one or two lines here describing your solution.
 */
 
 function halveAll(numbers) {
-  // your code is here
+    if (Array.isArray(numbers)) {
+        return map(numbers, function(number, index) {
+            return number / 2;
+        })
+    }
+    return 'Invalid input';
 }
+
+/**
+  ==== Solution description ====
+  @function halveAll() accepts a single @param numbers and
+  checks if its an array or not. In case its not an array it will return
+  an invalid input message, else it will utilize the @function map(coll, function)
+  to create a new array, iterate through the values inside @param coll and use @param
+  function to modify (in this case divide the value by 2) the values and push the
+  ones that are valied to the new array.    
+*/
 
 //=============================================================================
 /*                                  Q5                                       */
@@ -175,8 +221,26 @@ values({first : 5, second: 'something' , third : 129}) ==> [5, 'something', 129]
 
 Note: please write one or two lines here describing your solution.
 */
+
 function values(obj) {
-  // TODO: your code here
+  if(typeof obj === 'object'){
+    var output = [];
+    each(obj, function(value, key) {
+      output.push(value);
+    });
+
+    return output;
+  }
+  return 'Invalid input';
 }
+
+/**
+  ==== Solution description ====
+  @function values() accepts a single @param objct and
+  checks if its an object or not. In case its not an object it will return
+  an invalid input message, else it will create a new array for the output, 
+  utilize the @function each(coll, function) iterate through the values inside
+  @param coll and use @param function to push values to the output array.    
+*/
 
 //Good Luck :))
